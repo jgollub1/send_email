@@ -1,10 +1,10 @@
 # send_email
 
-Send out scheduled emails from your terminal. Clone this repository into desired location. cd to 'send_email' in terminal. Run the following once (makes shell script executable),
+To send out scheduled emails from your terminal, clone this repository to a desired location. cd to 'send_email' in terminal. To make the shell script executable, run the following once
 
 $ chmod +x send_mail.sh 
 
-To send a regularly scheduled message, set the desired frequency in line 15 of set_schedule.sh. Write your desired message in email.txt. Then run the following,
+Next, follow the instructions in setup.txt to configure your gmail account with postfix. To send a regularly scheduled message, set the desired frequency in line 15 of set_schedule.sh. Write your desired message in email.txt. Then run the following,
 
 $ ./set_schedule.sh yourName destinationAddress
 
