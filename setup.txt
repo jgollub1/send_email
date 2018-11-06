@@ -1,0 +1,33 @@
+
+Set up gmail account with postfix
+
+'sudo vim /etc/postfix/main.cf'
+
+add the following lines below commented out relayhosts
+
+relayhost = [smtp.gmail.com]:587
+smtp_sasl_auth_enable = yes
+smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
+smtp_sasl_security_options = noanonymous
+smtp_use_tls = yes
+
+to create a sasl password
+
+'sudo vim /etc/postfix/sasl_passwd'
+
+and paste the following
+
+[smtp.gmail.com]:587 username@gmail.com:password
+
+finally, run the following commands
+
+sudo chmod 600 /etc/postfix/sasl_passwd
+sudo postmap /etc/postfix/sasl_passwd
+sudo launchctl stop org.postfix.master
+sudo launchctl start org.postfix.master
+
+Now, log in to the same gmail account at 
+
+https://www.google.com/settings/security/lesssecureapps
+
+And set 'Allow less secure apps' to on.
